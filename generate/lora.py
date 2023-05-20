@@ -15,7 +15,7 @@ from generate import generate
 from lit_llama import Tokenizer, LLaMA
 from lit_llama.lora import lora
 from lit_llama.utils import EmptyInitOnDevice, lazy_load, llama_model_lookup
-from scripts.prepare_alpaca import generate_prompt
+from scripts.prepare_cudata import generate_prompt
 
 lora_r = 8
 lora_alpha = 16
@@ -25,7 +25,7 @@ lora_dropout = 0.05
 def main(
     prompt: str = "What food do lamas eat?",
     input: str = "",
-    lora_path: Path = Path("out/lora/alpaca/lit-llama-lora-finetuned.pth"),
+    lora_path: Path = Path("out/lora/cudata/lit-llama-lora-finetuned.pth"),
     pretrained_path: Path = Path("checkpoints/lit-llama/7B/lit-llama.pth"),
     tokenizer_path: Path = Path("checkpoints/lit-llama/tokenizer.model"),
     quantize: Optional[str] = None,

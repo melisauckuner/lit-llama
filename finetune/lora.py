@@ -21,7 +21,7 @@ from generate import generate
 from lit_llama.lora import mark_only_lora_as_trainable, lora, lora_state_dict
 from lit_llama.model import LLaMA, LLaMAConfig
 from lit_llama.tokenizer import Tokenizer
-from scripts.prepare_alpaca import generate_prompt
+from scripts.prepare_cudata import generate_prompt
 
 
 eval_interval = 100
@@ -44,10 +44,10 @@ warmup_steps = 100
 
 
 def main(
-    data_dir: str = "data/alpaca", 
+    data_dir: str = "data/cudata", 
     pretrained_path: str = "checkpoints/lit-llama/7B/lit-llama.pth",
     tokenizer_path: str = "checkpoints/lit-llama/tokenizer.model",
-    out_dir: str = "out/lora/alpaca",
+    out_dir: str = "out/lora/cudata",
 ):
 
     fabric = L.Fabric(accelerator="cuda", devices=1, precision="bf16-true")
